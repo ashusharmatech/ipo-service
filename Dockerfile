@@ -17,6 +17,9 @@ RUN ./mvnw dependency:go-offline -B
 COPY src ./src
 RUN ./mvnw clean package -DskipTests
 
+# Rename the jar after build
+RUN cp target/ipo-service*.jar target/app.jar
+
 # ============================
 # 🔹 2. Runtime Stage
 # ============================
