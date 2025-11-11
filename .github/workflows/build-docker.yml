@@ -13,8 +13,7 @@ permissions:
 env:
   IMAGE_NAME: ashusharma/ipo-service
   JAVA_VERSION: 21
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+  GITHUB_TOKEN: ${{ secrets.REPO_GITHUB_ACCESS_TOKEN }}
   DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
 
 jobs:
@@ -114,7 +113,7 @@ jobs:
       - name: Docker Hub login
         uses: docker/login-action@v3
         with:
-          username: ${{ env.DOCKERHUB_USERNAME }}
+          username: ashusharma
           password: ${{ env.DOCKERHUB_TOKEN }}
 
       # 9️⃣ Build & push Docker image
