@@ -99,7 +99,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
 
-      # 6️⃣ Build JAR
+      - name: Make mvnw executable
+        run: chmod +x mvnw
+
+    # 6️⃣ Build JAR
       - name: Build JAR
         run: ./mvnw clean package -DskipTests
 
